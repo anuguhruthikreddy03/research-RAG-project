@@ -1,4 +1,3 @@
-# src/embedding/indexer.py
 import os
 import tempfile
 from dotenv import load_dotenv
@@ -8,7 +7,6 @@ from langchain_docling.loader import ExportType
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_qdrant import QdrantVectorStore, RetrievalMode, FastEmbedSparse
 
-# Correct modern Docling pipeline module endpoints
 from docling.datamodel.base_models import InputFormat
 from docling.datamodel.pipeline_options import PdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
