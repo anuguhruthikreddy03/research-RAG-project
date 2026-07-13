@@ -324,9 +324,10 @@ streamlit run app.py
 
 B.Tech – Computer Science & Engineering (AI & ML)
 
-** GitHub ** https://github.com/anuguhruthikreddy03
+GitHub : https://github.com/anuguhruthikreddy03
 
-** LinkedIn ** https://www.linkedin.com/in/hruthikrdy03/
+LinkedIn : https://www.linkedin.com/in/hruthikrdy03/
+
 ---
 
 # ⭐ If you found this project useful
