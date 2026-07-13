@@ -46,28 +46,6 @@ Google Gemini 2.5 Flash
       │
       ▼
 Generated Response
-```
-
----
-
-## 📂 Project Structure
-
-```
-research_rag_project/
-│
-├── src/
-│   ├── embedding/
-│   │   └── indexer.py
-│   ├── generation/
-│   │   └── chain.py
-│   └── evaluation/
-│       └── evaluator.py
-│
-├── app.py
-├── requirements.txt
-├── .env
-└── README.md
-```
 
 ---
 
@@ -174,15 +152,9 @@ streamlit run app.py
 
 **GitHub:** https://github.com/anuguhruthikreddy03
 
-**LinkedIn:** https://www.linkedin.com/in/anuguhruthikreddy03
+**LinkedIn:** https://www.linkedin.com/in/hruthikrdy03/
 
 ---
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a **⭐ Star** on GitHub.
-
-
 ## ⭐ Support
 
 If you found this project useful, consider giving it a **⭐ Star** on GitHub.
