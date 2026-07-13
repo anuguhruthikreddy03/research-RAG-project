@@ -15,8 +15,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langfuse.langchain import CallbackHandler
 
-# Client-side rate limiter for Gemini Free Tier (max 15 RPM)
-# 1 request every 5 seconds = max 12 RPM
+
 eval_rate_limiter = InMemoryRateLimiter(
     requests_per_second=0.2,
     check_every_n_seconds=0.1,
@@ -78,7 +77,7 @@ def run_dynamic_evaluation(processed_documents, rag_chain, vectorstore, num_ques
     generated_questions = [sample.question for sample in response.samples]
     ground_truths = [sample.ground_truth for sample in response.samples]
     
-    # Initialize Langfuse Callback handler early if credentials exist
+
     langfuse_callback = None
     if os.environ.get('LANGFUSE_PUBLIC_KEY') and os.environ.get('LANGFUSE_SECRET_KEY'):
         print("Langfuse monitoring detected. Initializing cloud observability tracing handler...")
@@ -96,7 +95,7 @@ def run_dynamic_evaluation(processed_documents, rag_chain, vectorstore, num_ques
         except Exception as err:
             res_answer = f"Pipeline Inference Error: {err}"
             
-        # Retrieve context matching the parameters
+       
         retrieved_text = get_reranked_context(question, vectorstore, top_k=5)
         
         sample = SingleTurnSample(
@@ -114,10 +113,10 @@ def run_dynamic_evaluation(processed_documents, rag_chain, vectorstore, num_ques
 
     metrics_list = [f_metric, ar_metric]
 
-    # Pass LLM and embeddings directly to evaluate (new syntax)
+
     print("Computing metrics via Native Ragas Engine...")
     
-    # Control concurrency using RunConfig to avoid 429 rate limit
+
     run_config = RunConfig(max_workers=1, timeout=300)
     
     result = evaluate(
