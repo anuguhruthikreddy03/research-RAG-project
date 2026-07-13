@@ -81,7 +81,7 @@ research_rag_project/
 | Vector Database | Qdrant |
 | Embeddings | FastEmbed, Sentence Transformers |
 | Document Parsing | Docling |
-| Evaluation | RAGAS |
+| Evaluation | RAGAS, Langfuse |
 | Environment | Python Dotenv |
 
 ---
