@@ -1,5 +1,3 @@
-# --------------------------------------------------------------
-
 
 import streamlit as st
 import pandas as pd
@@ -20,7 +18,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# State Management Initialization loops
 if "vectorstore" not in st.session_state:
     st.session_state.vectorstore = None
 if "raw_chunks" not in st.session_state:
@@ -30,7 +27,6 @@ if "rag_chain" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Sidebar UI Section
 with st.sidebar:
     st.image("https://img.icons8.com/fluent/96/000000/artificial-intelligence.png", width=60)
     st.title("InsightStream RAG")
@@ -53,7 +49,6 @@ with st.sidebar:
                 except Exception as ex:
                     st.error(f"Failed to process document layout: {ex}")
 
-    # Display In-App Metrics suite when a document asset is loaded
     if st.session_state.vectorstore is not None:
         st.markdown("---")
         st.subheader("📊 Live Evaluation Panel")
@@ -78,7 +73,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.rerun()
 
-# Workspace Main Stage Render
+
 
 st.title("📚 Intelligent Document DeepDive Dashboard")
 st.markdown("Interact dynamically with structural text contexts extracted through high-fidelity layout analytics engines.")
