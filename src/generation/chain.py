@@ -1,4 +1,4 @@
-# src/generation/chain.py
+
 import os
 from dotenv import load_dotenv
 from fastembed.rerank.cross_encoder import TextCrossEncoder
@@ -8,8 +8,7 @@ from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.rate_limiters import InMemoryRateLimiter
 
-# Client-side rate limiter for Gemini Free Tier (max 15 RPM)
-# 1 request every 5 seconds = max 12 RPM
+
 rate_limiter = InMemoryRateLimiter(
     requests_per_second=0.2,
     check_every_n_seconds=0.1,
@@ -26,15 +25,14 @@ def get_reranked_context(query_text: str, vectorstore, top_k: int = 5) -> str:
     if not vectorstore:
         return "Please upload a document to proceed."
         
-    # Query double the candidate chunk arrays to offer appropriate variance for the reranker
+   
     raw_documents = vectorstore.similarity_search(query_text, k=top_k * 2)
     
     if not raw_documents:
         return "I could not locate any context matching this parameter in the document."
         
     description_hits = [doc.page_content for doc in raw_documents]
-    
-    # Configure the cross-encoder using a localized caching space to verify write stability
+ 
     cache_dir = os.path.join(os.getcwd(), ".fastembed_cache")
     reranker = TextCrossEncoder(
         model_name='jinaai/jina-reranker-v2-base-multilingual',
@@ -43,7 +41,7 @@ def get_reranked_context(query_text: str, vectorstore, top_k: int = 5) -> str:
     
     new_scores = list(reranker.rerank(query_text, description_hits))
     
-    # Sort indexes cleanly using Python list lambda sorting
+    
     ranking = [(i, score) for i, score in enumerate(new_scores)]
     ranking.sort(key=lambda x: x[1], reverse=True)
     
@@ -76,7 +74,6 @@ def build_dynamic_rag_chain(vectorstore):
         ("human", "{question}"),
     ])
     
-    # Modern explicit functional mapping topology
     rag_chain = (
         {
             "context": RunnableLambda(lambda inputs: get_reranked_context(inputs["question"], vectorstore)),
