@@ -1,4 +1,4 @@
-# 📚 Research RAG Project
+# AI Research RAG Project
 ### Intelligent Research Assistant using Hybrid Retrieval, Google Gemini, Docling, Qdrant, and RAGAS
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
