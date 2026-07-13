@@ -1,0 +1,13 @@
+langchain
+langchain-community<0.4.0
+langchain-huggingface
+langchain-qdrant
+langchain-google-genai
+langchain-docling
+qdrant-client
+fastembed
+pypdf
+python-dotenv
+streamlit
+ragas
+pandas

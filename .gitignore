@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+
+.fastembed_cache/
+
+.env
+
+*.pkl
+*.joblib
+
+*.csv
+
+.idea/
+.vscode/
+
+.DS_Store
