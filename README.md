@@ -6,7 +6,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red)
 ![Gemini](https://img.shields.io/badge/Google-Gemini-orange)
 ![Qdrant](https://img.shields.io/badge/Qdrant-Hybrid%20Search-purple)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+
 
 ---
 
